@@ -1,0 +1,43 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="pin-page">
+    <div class="pin-card">
+
+    <img src="~/images/lifetag-logo.png"
+         alt="LifeTag Logo"
+         class="pin-logo" />
+
+        <h2 class="pin-title">Enter LifeTag PIN</h2>
+        <p class="pin-subtitle">
+            Enter the 4-digit code found on the bracelet
+        </p>
+
+        <form method="post">
+            <input type="hidden" asp-for="TagId" />
+            <input type="hidden" asp-for="Pin" id="Pin" />
+
+ <div class="pin-inputs-wrapper">
+    <div class="pin-inputs">
+        <input maxlength="1" class="pin-input" inputmode="numeric" />
+        <input maxlength="1" class="pin-input" inputmode="numeric" />
+        <input maxlength="1" class="pin-input" inputmode="numeric" />
+        <input maxlength="1" class="pin-input" inputmode="numeric" />
+    </div>
+
+    <span asp-validation-for="Pin" class="pin-error text-danger"></span>
+</div>
+            <button class="btn pin-btn w-100">
+                Continue
+            </button>
+        </form>
+    </div>
+
+</div>
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

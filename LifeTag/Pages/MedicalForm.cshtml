@@ -1,0 +1,157 @@
+﻿@page
+@model LifeTag.Pages.MedicalFormModel
+@{
+    ViewData["Title"] = "Medical Form";
+}
+
+<form method="post">
+<div class="page">
+  <div class="center-wrapper">
+
+    <!-- Progress -->
+    <div class="progress-wrap">
+      <span id="stepText">Step 1 of 4</span>
+      <div class="progress">
+        <div class="bar" id="progressBar"></div>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="card">
+
+      <!-- ================= STEP 1 ================= -->
+      <section class="step active">
+        <h1>Personal Info</h1>
+
+        <label>Full Name</label>
+        <input asp-for="Input.FullName"
+               placeholder="e.g. Ahmed Mohamed"
+               required />
+
+        <label>Date of Birth</label>
+        <input asp-for="Input.DateOfBirth"
+               type="date"
+               max="@DateTime.Today.ToString("yyyy-MM-dd")"
+               required />
+
+        <div class="row">
+          <div class="field">
+            <span class="field-label">Weight (kg)</span>
+            <span class="optional">(optional)</span>
+            <input asp-for="Input.WeightKg"
+                   type="number"
+                   placeholder="kg"
+                   min="1"
+                   max="300" />
+          </div>
+
+          <div class="field">
+            <span class="field-label">Height (cm)</span>
+            <span class="optional">(optional)</span>
+            <input asp-for="Input.HeightCm"
+                   type="number"
+                   placeholder="cm"
+                   min="50"
+                   max="250" />
+          </div>
+        </div>
+
+        <button type="button" class="primary">Next →</button>
+      </section>
+
+      <!-- ================= STEP 2 ================= -->
+      <section class="step">
+        <h1>Medical Basics</h1>
+
+        <label>Blood Type</label>
+        <select asp-for="Input.BloodType" required>
+          <option value="">Select your blood type</option>
+          <option>A+</option><option>A-</option>
+          <option>B+</option><option>B-</option>
+          <option>AB+</option><option>AB-</option>
+          <option>O+</option><option>O-</option>
+        </select>
+
+        <label>Chronic Diseases</label>
+        <textarea asp-for="Input.ChronicDiseases"
+                  placeholder="e.g. Diabetes, Asthma, Hypertension"></textarea>
+
+        <label>Allergies</label>
+        <textarea asp-for="Input.Allergies"
+                  placeholder="e.g. Penicillin, Peanuts, Shellfish"></textarea>
+
+        <label>Medications</label>
+        <textarea asp-for="Input.Medications"
+                  placeholder="e.g. Metformin 500mg, Lisinopril 10mg"></textarea>
+
+        <div class="actions">
+          <button type="button" class="ghost">Back</button>
+          <button type="button" class="primary">Next →</button>
+        </div>
+      </section>
+
+      <!-- ================= STEP 3 ================= -->
+      <section class="step">
+        <h1>Emergency Contacts</h1>
+
+        <div id="contactsContainer">
+
+          <div class="contact-card">
+            <h3>Contact 1</h3>
+            <input asp-for="Input.EmergencyContacts[0].Name"
+                   placeholder="Full name" />
+            <input asp-for="Input.EmergencyContacts[0].Relationship"
+                   placeholder="Relationship" />
+            <input asp-for="Input.EmergencyContacts[0].PhoneNumber"
+                   placeholder="+20..." />
+          </div>
+
+          <div class="contact-card">
+            <h3>Contact 2</h3>
+            <input asp-for="Input.EmergencyContacts[1].Name"
+                   placeholder="Full name" />
+            <input asp-for="Input.EmergencyContacts[1].Relationship"
+                   placeholder="Relationship" />
+            <input asp-for="Input.EmergencyContacts[1].PhoneNumber"
+                   placeholder="+20..." />
+          </div>
+
+          <div class="contact-card">
+            <h3>Contact 3</h3>
+            <input asp-for="Input.EmergencyContacts[2].Name"
+                   placeholder="Full name" />
+            <input asp-for="Input.EmergencyContacts[2].Relationship"
+                   placeholder="Relationship" />
+            <input asp-for="Input.EmergencyContacts[2].PhoneNumber"
+                   placeholder="+20..." />
+          </div>
+
+        </div>
+
+        <div class="actions">
+          <button type="button" class="ghost">Back</button>
+          <button type="button" class="primary">Next →</button>
+        </div>
+      </section>
+
+      <!-- ================= STEP 4 ================= -->
+      <section class="step">
+        <h1>Additional Notes</h1>
+
+        <label>Medical Notes</label>
+        <textarea asp-for="Input.MedicalNotes"
+                  placeholder="e.g. Has pacemaker, allergic to anesthesia"></textarea>
+
+        <div class="actions">
+          <button type="button" class="ghost">Back</button>
+          <button type="submit" class="primary">Finish</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+</form>
+
+<link rel="stylesheet" href="~/css/medical-form.css" asp-append-version="true" />
+<script src="~/js/medical-form.js" asp-append-version="true"></script>
