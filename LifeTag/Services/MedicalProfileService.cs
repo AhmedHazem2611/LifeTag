@@ -42,6 +42,14 @@ namespace LifeTag.Services
                     UserId = userId
                 });
             }
+            foreach (var content in Split(input.MedicalNotes))
+            {
+                _context.MedicalNotes.Add(new MedicalNote
+                {
+                    Content = content,
+                    UserId = userId
+                });
+            }
 
             // Emergency Contacts
             foreach (var c in input.EmergencyContacts)

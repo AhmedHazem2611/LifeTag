@@ -1,10 +1,12 @@
-﻿@page
+﻿@page "{tagId:guid}"
 @model LifeTag.Pages.MedicalFormModel
 @{
     ViewData["Title"] = "Medical Form";
 }
 
-<form method="post">
+<form method="post" >
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="tagId" value="@RouteData.Values["tagId"]">
 <div class="page">
   <div class="center-wrapper">
 
@@ -25,14 +27,13 @@
 
         <label>Full Name</label>
         <input asp-for="Input.FullName"
-               placeholder="e.g. Ahmed Mohamed"
-               required />
+               placeholder="e.g. Ahmed Mohamed"/>
 
         <label>Date of Birth</label>
         <input asp-for="Input.DateOfBirth"
                type="date"
                max="@DateTime.Today.ToString("yyyy-MM-dd")"
-               required />
+               />
 
         <div class="row">
           <div class="field">
@@ -64,7 +65,7 @@
         <h1>Medical Basics</h1>
 
         <label>Blood Type</label>
-        <select asp-for="Input.BloodType" required>
+        <select asp-for="Input.BloodType">
           <option value="">Select your blood type</option>
           <option>A+</option><option>A-</option>
           <option>B+</option><option>B-</option>

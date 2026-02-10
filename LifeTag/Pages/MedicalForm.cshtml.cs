@@ -21,6 +21,8 @@ namespace LifeTag.Pages
             _tagService = tagService;
         }
 
+        [BindProperty (SupportsGet = true)]
+        public Guid TagId { get; set; }
         [BindProperty]
         public MedicalFormInput Input { get; set; } = new();
         public void OnGet()

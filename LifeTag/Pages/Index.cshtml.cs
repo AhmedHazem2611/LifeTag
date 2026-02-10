@@ -1,3 +1,4 @@
+using LifeTag.Models;
 using LifeTag.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -47,7 +48,7 @@ namespace LifeTag.Pages
 
             if(!_tagService.IsTagActive(TagId))
             {
-                return RedirectToPage("/MedicalForm");
+                return RedirectToPage("/MedicalForm", new { TagId = TagId });
             }
 
             return RedirectToPage("/EmergencyProfile");

@@ -22,7 +22,10 @@
     }
 
     document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('primary')) {
+        if (
+            e.target.classList.contains('primary') &&
+            e.target.type === 'button'
+        ) {
             if (currentStep < totalSteps - 1) {
                 currentStep++;
                 updateUI();
