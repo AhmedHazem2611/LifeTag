@@ -17,7 +17,7 @@ namespace LifeTag.Pages
         }
 
         [BindProperty(SupportsGet = true)]
-        public Guid TagId { get; set; } = Guid.Parse("A9DD6742-6120-4A26-9310-AEF5B67BD898");
+        public Guid TagId { get; set; } = Guid.Parse("552DAD65-B117-45CE-9ABF-C482DAAE17A0");
         [BindProperty]
         public string Pin { get; set; }
 
@@ -51,7 +51,7 @@ namespace LifeTag.Pages
                 return RedirectToPage("/MedicalForm", new { TagId = TagId });
             }
 
-            return RedirectToPage("/EmergencyProfile");
+            return RedirectToPage("/EmergencyProfile", new { TagId = TagId });
         }
     }
 }

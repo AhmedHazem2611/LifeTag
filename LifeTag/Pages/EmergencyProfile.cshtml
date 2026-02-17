@@ -1,0 +1,102 @@
+﻿@page "{tagId:guid}"
+@model LifeTag.Pages.EmergencyProfileModel
+@{
+    ViewData["Title"] = "Emergency Profile";
+}
+
+<div class="page">
+    <div class="center-wrapper">
+
+        <!-- Emergency Badge -->
+        <div class="emergency-badge">
+            EMERGENCY PROFILE
+        </div>
+
+        <!-- Main Card -->
+        <div class="card emergency-card">
+
+            <!-- Header -->
+            <div class="profile-header">
+                <h1>@Model.Profile.FullName</h1>
+                <span class="blood">@Model.Profile.BloodType</span>
+            </div>
+
+            <!-- Chronic Conditions -->
+            @if (Model.Profile.MedicalConditions.Any())
+            {
+                <div class="section">
+                    <h3>Chronic Conditions</h3>
+                    <ul>
+                        @foreach (var condition in Model.Profile.MedicalConditions)
+                        {
+                            <li>@condition.Name</li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            <!-- Medications -->
+            @if (Model.Profile.Medications.Any())
+            {
+                <div class="section">
+                    <h3>Medications</h3>
+                    <ul>
+                        @foreach (var med in Model.Profile.Medications)
+                        {
+                            <li>@med.Name</li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            <!-- Allergies -->
+            @if (Model.Profile.Allergies.Any())
+            {
+                <div class="section">
+                    <h3>Allergies</h3>
+                    <ul>
+                        @foreach (var allergy in Model.Profile.Allergies)
+                        {
+                            <li>@allergy.Name</li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            <!-- Emergency Contacts -->
+            @if (Model.Profile.EmergencyContacts.Any())
+            {
+                <div class="section">
+                    <h3>Emergency Contacts</h3>
+
+                    @foreach (var contact in Model.Profile.EmergencyContacts)
+                    {
+                        <div class="contact">
+                            <div>
+                                <strong>@contact.Name</strong>
+                                <span>@contact.Relation</span>
+                            </div>
+                            <a href="tel:@contact.PhoneNumber">Call</a>
+                        </div>
+                    }
+                </div>
+            }
+
+            <!-- Medical Notes -->
+            @if (Model.Profile.MedicalNotes.Any())
+            {
+                <div class="section">
+                    <h3>Medical Notes</h3>
+
+                    @foreach (var note in Model.Profile.MedicalNotes)
+                    {
+                        <p>@note.Content</p>
+                    }
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="~/css/emergency.css" asp-append-version="true" />
