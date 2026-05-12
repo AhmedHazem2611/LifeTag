@@ -1,0 +1,9 @@
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Api\obj\Debug\net9.0\LifeTag.Api.csproj.AssemblyReference.cache
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Api\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Api\obj\Debug\net9.0\LifeTag.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Api\obj\Debug\net9.0\LifeTag.Api.AssemblyInfoInputs.cache
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Api\obj\Debug\net9.0\LifeTag.Api.AssemblyInfo.cs
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Api\obj\Debug\net9.0\LifeTag.Api.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Api\obj\Debug\net9.0\LifeTag.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Api\obj\Debug\net9.0\LifeTag.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Api\obj\Debug\net9.0\LifeTag.Api.sourcelink.json

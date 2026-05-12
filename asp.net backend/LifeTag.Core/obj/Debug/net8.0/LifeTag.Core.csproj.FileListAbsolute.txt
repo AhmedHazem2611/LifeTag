@@ -1,0 +1,16 @@
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\bin\Debug\net8.0\LifeTag.Core.deps.json
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\bin\Debug\net8.0\LifeTag.Core.dll
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\bin\Debug\net8.0\LifeTag.Core.pdb
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\obj\Debug\net8.0\LifeTag.Core.csproj.AssemblyReference.cache
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\obj\Debug\net8.0\LifeTag.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\obj\Debug\net8.0\LifeTag.Core.AssemblyInfoInputs.cache
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\obj\Debug\net8.0\LifeTag.Core.AssemblyInfo.cs
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\obj\Debug\net8.0\LifeTag.Core.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\obj\Debug\net8.0\LifeTag.Core.sourcelink.json
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\obj\Debug\net8.0\LifeTag.Core.dll
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\obj\Debug\net8.0\refint\LifeTag.Core.dll
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\obj\Debug\net8.0\LifeTag.Core.pdb
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\obj\Debug\net8.0\ref\LifeTag.Core.dll
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\bin\Debug\net8.0\LifeTag.Contracts.dll
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\bin\Debug\net8.0\LifeTag.Contracts.pdb
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Core\obj\Debug\net8.0\LifeTag..686719B6.Up2Date

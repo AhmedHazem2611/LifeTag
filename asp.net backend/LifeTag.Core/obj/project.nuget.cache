@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "dash4OrpXXg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Core\\LifeTag.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ahmed Rashed\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

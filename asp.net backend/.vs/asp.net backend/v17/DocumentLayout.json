@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Api\\Controllers\\AuthController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LifeTag.Api\\Controllers\\AuthController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Service\\obj\\LifeTag.Service.csproj.nuget.g.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LifeTag.Service\\obj\\LifeTag.Service.csproj.nuget.g.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Service\\LifeTag.Service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LifeTag.Service\\LifeTag.Service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "LifeTag.Api\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "LifeTag.Api\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T22:15:42.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LifeTag.Service.csproj.nuget.g.props",
+              "DocumentMoniker": "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Service\\obj\\LifeTag.Service.csproj.nuget.g.props",
+              "RelativeDocumentMoniker": "LifeTag.Service\\obj\\LifeTag.Service.csproj.nuget.g.props",
+              "ToolTip": "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Service\\obj\\LifeTag.Service.csproj.nuget.g.props",
+              "RelativeToolTip": "LifeTag.Service\\obj\\LifeTag.Service.csproj.nuget.g.props",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-05-06T22:10:22.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LifeTag.Service.csproj",
+              "DocumentMoniker": "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Service\\LifeTag.Service.csproj",
+              "RelativeDocumentMoniker": "LifeTag.Service\\LifeTag.Service.csproj",
+              "ToolTip": "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Service\\LifeTag.Service.csproj",
+              "RelativeToolTip": "LifeTag.Service\\LifeTag.Service.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-06T22:10:16.618Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

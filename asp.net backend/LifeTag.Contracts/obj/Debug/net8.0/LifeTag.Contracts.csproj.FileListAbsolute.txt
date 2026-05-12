@@ -1,0 +1,12 @@
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\bin\Debug\net8.0\LifeTag.Contracts.deps.json
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\bin\Debug\net8.0\LifeTag.Contracts.dll
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\bin\Debug\net8.0\LifeTag.Contracts.pdb
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\obj\Debug\net8.0\LifeTag.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\obj\Debug\net8.0\LifeTag.Contracts.AssemblyInfoInputs.cache
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\obj\Debug\net8.0\LifeTag.Contracts.AssemblyInfo.cs
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\obj\Debug\net8.0\LifeTag.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\obj\Debug\net8.0\LifeTag.Contracts.sourcelink.json
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\obj\Debug\net8.0\LifeTag.Contracts.dll
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\obj\Debug\net8.0\refint\LifeTag.Contracts.dll
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\obj\Debug\net8.0\LifeTag.Contracts.pdb
+C:\Users\Ahmed Rashed\Desktop\life_Tag (no raffat)\asp.net backend\LifeTag.Contracts\obj\Debug\net8.0\ref\LifeTag.Contracts.dll
