@@ -30,11 +30,11 @@ export default function QRHandler() {
           }
         } else {
           console.error("Tag not found or error", data.message);
-          navigate('/signin');
+          navigate('/404');
         }
       } catch (err) {
         console.error("QR check failed", err);
-        navigate('/signin');
+        navigate('/404');
       }
     };
 

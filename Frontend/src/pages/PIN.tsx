@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
@@ -9,6 +9,12 @@ export default function PIN() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const guid = searchParams.get('guid');
+
+  useEffect(() => {
+    if (!guid) {
+      navigate('/404');
+    }
+  }, [guid, navigate]);
 
   const inputRefs = [
     useRef<HTMLInputElement>(null),

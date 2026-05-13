@@ -69,6 +69,8 @@ export default function Dashboard() {
        case 'medications': return { title: 'Medications', type: 'list' };
        case 'allergies': return { title: 'Allergies', type: 'list' };
        case 'emergencyContacts': return { title: profile.templateType === 'Child' ? 'Parent Contacts' : 'Emergency Contact', type: 'contact' };
+       case 'notes': return { title: 'Additional Notes', type: 'note' };
+       case 'address': return { title: 'Address', type: 'address' };
        default: return { title: field, type: 'note' };
     }
   };
@@ -202,7 +204,16 @@ export default function Dashboard() {
         if (contact.id) {
             const { title, type } = getSectionMetadata('emergencyContacts');
             try {
-                await granularSync('PUT', contact.id, { title, sectionType: type, data: { name: contact.name, phoneNumber: contact.phone, relation: contact.type } });
+                // Ensure we use the standardized field names from EmergencyContactDto
+                await granularSync('PUT', contact.id, { 
+                    title, 
+                    sectionType: type, 
+                    data: { 
+                        name: contact.name, 
+                        phoneNumber: contact.phoneNumber, 
+                        relation: contact.relation 
+                    } 
+                });
                 localStorage.setItem('previewUpdate', Date.now().toString());
             } catch { setProfile(oldProfile); }
         }
@@ -224,7 +235,9 @@ export default function Dashboard() {
     newSections[sectionIdx] = { ...newSections[sectionIdx], items: newItems };
     setProfile({ ...profile, customSections: newSections });
 
-    if (newSections[sectionIdx].id) {
+    // Guard: Don't sync if we only have a tempId (Date.now())
+    const isTempId = typeof newSections[sectionIdx].id === 'number' && newSections[sectionIdx].id > 1000000;
+    if (newSections[sectionIdx].id && !isTempId) {
         try {
             await granularSync('PUT', newSections[sectionIdx].id, { title: newSections[sectionIdx].name, sectionType: 'list', data: newItems });
             localStorage.setItem('previewUpdate', Date.now().toString());
@@ -258,7 +271,9 @@ export default function Dashboard() {
     setProfile({ ...profile, customSections: newSections });
     setEditingItem(null);
 
-    if (newSections[sectionIdx].id) {
+    // Guard: Don't sync if we only have a tempId
+    const isTempId = typeof newSections[sectionIdx].id === 'number' && newSections[sectionIdx].id > 1000000;
+    if (newSections[sectionIdx].id && !isTempId) {
         try {
             await granularSync('PUT', newSections[sectionIdx].id, { title: val, sectionType: 'list', data: newSections[sectionIdx].items });
             localStorage.setItem('previewUpdate', Date.now().toString());
@@ -307,9 +322,10 @@ export default function Dashboard() {
   };
 
   const InlineInput = ({ onSave, onCancel, isContact, initialVal }: any) => {
-    const [val, setVal] = useState(initialVal?.name || initialVal || '');
-    const [phone, setPhone] = useState(initialVal?.phone || initialVal?.phoneNumber || '');
-    const [relation, setRelation] = useState(initialVal?.type || initialVal?.relation || '');
+    // Robust initialization: ensures we don't fall back to the full object if a field is missing
+    const [val, setVal] = useState(isContact ? (initialVal?.name || initialVal?.Name || '') : (initialVal || ''));
+    const [phone, setPhone] = useState(isContact ? (initialVal?.phoneNumber || initialVal?.phone || '') : '');
+    const [relation, setRelation] = useState(isContact ? (initialVal?.relation || initialVal?.type || '') : '');
     
     return (
       <div className="flex gap-2 w-full mt-2 bg-slate-50 p-2 rounded-xl border border-blue-100 shadow-sm animate-in fade-in slide-in-from-top-2">
@@ -526,7 +542,7 @@ export default function Dashboard() {
                 ) : (
                    <div key={idx} onClick={() => { setEditingItem({field: 'emergencyContacts', index: idx}); setEditVal(contact); }} className="flex flex-col bg-[#f4f6fb] px-4 py-3 rounded-xl text-[13px] text-slate-600 relative pr-10 cursor-pointer hover:bg-slate-100 transition-colors group">
                      <span className="font-extrabold text-[#1a1c1e] text-[14px]">{contact.name}</span>
-                     <span className="font-medium text-slate-500 mt-0.5">{contact.phone} {contact.type ? `• ${contact.type}` : ''}</span>
+                     <span className="font-medium text-slate-500 mt-0.5">{(contact.phoneNumber || contact.phone)} {(contact.relation || contact.type) ? `• ${(contact.relation || contact.type)}` : ''}</span>
                      <button onClick={(e) => { e.stopPropagation(); removeItem('emergencyContacts', idx); }} className="absolute right-3 top-1/2 transform -translate-y-1/2 w-7 h-7 rounded-full bg-red-50 text-red-500 flex items-center justify-center hover:bg-red-100 transition-colors opacity-0 group-hover:opacity-100 shrink-0"><X size={12} /></button>
                    </div>
                 )

@@ -101,7 +101,9 @@ namespace LifeTag.Service.Implementations
 
             tag.IsPinProtected = isPinProtected;
             
-            if (!string.IsNullOrEmpty(pin))
+            // Only update the PIN if a new one is explicitly provided
+            // This prevents overwriting the permanent bracelet PIN with null/empty values
+            if (!string.IsNullOrWhiteSpace(pin))
             {
                 tag.Pin = pin;
             }

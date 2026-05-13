@@ -13,6 +13,7 @@ import PublicProfile from './pages/PublicProfile';
 import LinkTag from './pages/LinkTag';
 import LocationHistory from './pages/LocationHistory';
 import QRHandler from './pages/QRHandler';
+import AdminPanel from './pages/AdminPanel';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path="/public-profile/:guid" element={<PublicProfile />} />
           <Route path="/link-tag" element={<LinkTag />} />
           <Route path="/location-history" element={<LocationHistory />} />
+          <Route path="/admin" element={<AdminPanel />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

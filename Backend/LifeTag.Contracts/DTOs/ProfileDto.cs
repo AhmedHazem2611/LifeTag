@@ -29,6 +29,7 @@ namespace LifeTag.Contracts.DTOs
     public class EmergencyContactDto
     {
         public int? Id { get; set; }
+        [System.Text.Json.Serialization.JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
 
         [System.Text.Json.Serialization.JsonPropertyName("phoneNumber")]

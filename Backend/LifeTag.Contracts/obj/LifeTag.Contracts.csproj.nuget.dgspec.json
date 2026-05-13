@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Contracts\\LifeTag.Contracts.csproj": {}
+    "C:\\Users\\Ahmed Rashed\\Desktop\\Life Tag\\Prototypes\\lifeTag (current)\\Backend\\LifeTag.Contracts\\LifeTag.Contracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Contracts\\LifeTag.Contracts.csproj": {
+    "C:\\Users\\Ahmed Rashed\\Desktop\\Life Tag\\Prototypes\\lifeTag (current)\\Backend\\LifeTag.Contracts\\LifeTag.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Contracts\\LifeTag.Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\Ahmed Rashed\\Desktop\\Life Tag\\Prototypes\\lifeTag (current)\\Backend\\LifeTag.Contracts\\LifeTag.Contracts.csproj",
         "projectName": "LifeTag.Contracts",
-        "projectPath": "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Contracts\\LifeTag.Contracts.csproj",
+        "projectPath": "C:\\Users\\Ahmed Rashed\\Desktop\\Life Tag\\Prototypes\\lifeTag (current)\\Backend\\LifeTag.Contracts\\LifeTag.Contracts.csproj",
         "packagesPath": "C:\\Users\\Ahmed Rashed\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ahmed Rashed\\Desktop\\life_Tag (no raffat)\\asp.net backend\\LifeTag.Contracts\\obj\\",
+        "outputPath": "C:\\Users\\Ahmed Rashed\\Desktop\\Life Tag\\Prototypes\\lifeTag (current)\\Backend\\LifeTag.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

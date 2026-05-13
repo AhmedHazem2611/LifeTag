@@ -148,10 +148,14 @@ namespace LifeTag.Service.Implementations
                 type = SectionTypes.Contact;
             }
 
+            // Safeguard: Skip adding sections with null or empty data (but allow empty collections for custom sections)
+            bool isEmptyString = data is string s && string.IsNullOrWhiteSpace(s);
+            if (data == null || isEmptyString) return;
+
             var json = JsonSerializer.Serialize(data);
 
-            // Try to find an existing unvisited section with matching Title and Type
-            var existingSection = existingSections.FirstOrDefault(s => s.Title == title && s.SectionType == type && !visitedSectionIds.Contains(s.Id));
+            // Try to find an existing unvisited section with matching Title and Type (case-insensitive title)
+            var existingSection = existingSections.FirstOrDefault(s => s.Title.Equals(title, StringComparison.OrdinalIgnoreCase) && s.SectionType == type && !visitedSectionIds.Contains(s.Id));
 
             if (existingSection != null)
             {
@@ -209,33 +213,57 @@ namespace LifeTag.Service.Implementations
                 }
 
                 var json = entry.DataJson;
+                var title = section.Title;
 
+                // 1. Title-based mapping (Highest priority for stable scalar fields)
+                if (title.Equals("Identity", StringComparison.OrdinalIgnoreCase) || title.Equals("Child Name", StringComparison.OrdinalIgnoreCase))
+                {
+                    var data = JsonSerializer.Deserialize<JsonElement>(json);
+                    dto.FullName = data.TryGetProperty("fullName", out var fn) ? fn.GetString() : null;
+                    continue;
+                }
+                
+                if (title.Equals("Address", StringComparison.OrdinalIgnoreCase))
+                {
+                    dto.Address = JsonSerializer.Deserialize<string>(json);
+                    continue;
+                }
+
+                if (title.Equals("Additional Notes", StringComparison.OrdinalIgnoreCase))
+                {
+                    dto.Notes = JsonSerializer.Deserialize<string>(json);
+                    continue;
+                }
+
+                if (title.Equals("Birth Info", StringComparison.OrdinalIgnoreCase))
+                {
+                    var textData = JsonSerializer.Deserialize<JsonElement>(json);
+                    dto.Dob = textData.TryGetProperty("dob", out var d) ? d.GetString() : null;
+                    continue;
+                }
+
+                if (title.Equals("Vital Info", StringComparison.OrdinalIgnoreCase))
+                {
+                    var textData = JsonSerializer.Deserialize<JsonElement>(json);
+                    dto.BloodType = textData.TryGetProperty("bloodType", out var bt) ? bt.GetString() : null;
+                    continue;
+                }
+
+                // 2. Type-based mapping (For lists and contacts)
                 switch (section.SectionType)
                 {
-                    case SectionTypes.Note:
-                        if (section.Title == "Identity" || section.Title == "Child Name") {
-                             var data = JsonSerializer.Deserialize<JsonElement>(json);
-                             dto.FullName = data.TryGetProperty("fullName", out var fn) ? fn.GetString() : null;
-                        } else dto.Notes = JsonSerializer.Deserialize<string>(json);
-                        break;
-                    case SectionTypes.Address:
-                        dto.Address = JsonSerializer.Deserialize<string>(json);
-                        break;
-                    case SectionTypes.Text:
-                        var textData = JsonSerializer.Deserialize<JsonElement>(json);
-                        if (section.Title == "Birth Info") dto.Dob = textData.TryGetProperty("dob", out var d) ? d.GetString() : null;
-                        if (section.Title == "Vital Info") dto.BloodType = textData.TryGetProperty("bloodType", out var bt) ? bt.GetString() : null;
-                        break;
                     case SectionTypes.List:
                         var items = JsonSerializer.Deserialize<string[]>(json) ?? Array.Empty<string>();
-                        if (section.Title == "Medical Conditions" || section.Title == "Chronic Diseases") dto.MedicalConditions = items;
-                        else if (section.Title == "Medications") dto.Medications = items;
-                        else if (section.Title == "Allergies") dto.Allergies = items;
-                        else {
+                        if (title.Equals("Medical Conditions", StringComparison.OrdinalIgnoreCase) || title.Equals("Chronic Diseases", StringComparison.OrdinalIgnoreCase)) dto.MedicalConditions = items;
+                        else if (title.Equals("Medications", StringComparison.OrdinalIgnoreCase)) dto.Medications = items;
+                        else if (title.Equals("Allergies", StringComparison.OrdinalIgnoreCase)) dto.Allergies = items;
+                        else 
+                        {
                             dto.CustomSections.Add(new CustomSectionDto { Id = section.Id, Name = section.Title, Items = items.ToList() });
                             dto.SectionIds.Remove(section.Title); // Custom sections use Id field, not SectionIds map
                         }
                         break;
+
                     case SectionTypes.Contact:
                         try
                         {
@@ -248,14 +276,14 @@ namespace LifeTag.Service.Implementations
                         }
                         catch
                         {
-                            // If a custom section was auto-typed as contact but sent as a list of strings
+                            // Fallback for list-based custom contacts
                             try
                             {
                                 var stringItems = JsonSerializer.Deserialize<string[]>(json);
                                 if (stringItems != null)
                                     dto.CustomSections.Add(new CustomSectionDto { Name = section.Title, Items = stringItems.ToList() });
                             }
-                            catch { /* Ignore invalid formats */ }
+                            catch { /* Ignore */ }
                         }
                         break;
                 }

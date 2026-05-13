@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
@@ -7,6 +7,14 @@ export default function SignUp() {
   const [formData, setFormData] = useState({ fullName: '', email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+
+  // Route guard: Ensure onboarding starts from a verified tag scan
+  useEffect(() => {
+    const pendingGuid = sessionStorage.getItem('pendingTagGuid');
+    if (!pendingGuid) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();

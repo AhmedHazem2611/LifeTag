@@ -23,10 +23,9 @@ export default function PublicProfile() {
             const statusData = await statusRes.json();
             
             if (!statusData.success || !statusData.data.isActive) {
-                // If it's internal preview, we don't care about isActive as much, 
-                // but usually internal preview doesn't have a guid in the URL anyway.
+                // If the tag is not active (unassigned), start onboarding
                 if (!isInternal) {
-                    setProfile({ isError: true, notes: 'This tag is inactive or uninitialized.' });
+                    navigate(`/pin?guid=${guid}`);
                     return;
                 }
             }
@@ -42,8 +41,10 @@ export default function PublicProfile() {
                 fetchUrl = `${import.meta.env.VITE_API_URL.replace(/\/$/, "")}/api/public-profile/${guid}`;
             }
         } catch (e) {
-            setProfile({ isError: true, notes: 'Failed to verify tag status.' });
-            return;
+            if (!isInternal) {
+                navigate('/404');
+                return;
+            }
         }
       } else {
         // Fallback for dashboard preview
@@ -65,7 +66,11 @@ export default function PublicProfile() {
           if (data.success && data.data) {
             setProfile({ ...data.data, fullName: data.data.fullName || userName });
           } else {
-            // Default mock data if profile not found or access denied
+            if (guid && !isInternal) {
+              navigate('/404');
+              return;
+            }
+            // Default mock data if profile not found or access denied (internal preview)
             setProfile({
               fullName: userName,
               bloodType: '?',
@@ -220,10 +225,10 @@ export default function PublicProfile() {
                 {profile.emergencyContacts?.length > 0 ? profile.emergencyContacts.map((contact: any, idx: number) => (
                  <div key={idx} className="flex justify-between items-center bg-white/70 p-3.5 rounded-2xl border border-slate-100 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
                     <div className="flex flex-col">
-                       <h3 className="font-extrabold text-[#1a1c1e] text-[14px] tracking-tight">{contact.name}</h3>
-                       <p className="text-[12px] text-slate-500 font-medium mt-0.5">{contact.relation || contact.type || 'Contact'}</p>
+                       <h3 className="font-extrabold text-[#1a1c1e] text-[14px] tracking-tight">{contact.name || 'Emergency Contact'}</h3>
+                       <p className="text-[12px] text-slate-500 font-medium mt-0.5">{contact.relation || contact.type || ''}</p>
                     </div>
-                    <a href={'tel:' + contact.phone} className="bg-gradient-to-r from-[#34d399] to-[#22c55e] border border-[#4ade80] text-white font-bold text-[13px] px-6 py-2.5 rounded-xl shadow-[0px_4px_12px_rgba(34,197,94,0.3)] hover:-translate-y-0.5 transition-transform">
+                    <a href={'tel:' + (contact.phoneNumber || contact.phone)} className="bg-gradient-to-r from-[#34d399] to-[#22c55e] border border-[#4ade80] text-white font-bold text-[13px] px-6 py-2.5 rounded-xl shadow-[0px_4px_12px_rgba(34,197,94,0.3)] hover:-translate-y-0.5 transition-transform">
                       Call
                     </a>
                  </div>
